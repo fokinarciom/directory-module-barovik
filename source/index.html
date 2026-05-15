@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Справочники кино</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Справочники кино</h1>
+      <p class="subtitle">Фокин Артём Игоревич · Курс: 3 · Группа: 2 · Год: 2026</p>
+    </div>
+    <div class="badge" id="apiStatus">Подключение...</div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <h2>Справочник</h2>
+      <select id="dictionarySelect" class="control">
+        <option value="genres">Жанры кино</option>
+        <option value="movies">Фильмы</option>
+      </select>
+
+      <div class="actions">
+        <button id="addBtn" class="btn primary">Добавить</button>
+        <button id="viewBtn" class="btn">Просмотр</button>
+        <button id="editBtn" class="btn">Редактировать</button>
+        <button id="deleteBtn" class="btn danger">Удалить</button>
+        <button id="refreshBtn" class="btn">Обновить</button>
+      </div>
+
+      <div class="hint">
+        Выберите строку в таблице, затем выберите действие.
+      </div>
+    </aside>
+
+    <section class="panel">
+      <div id="tableWrap"></div>
+    </section>
+  </main>
+
+  <dialog id="recordDialog" aria-labelledby="recordTitle" aria-describedby="recordDesc">
+    <form method="dialog" id="recordForm">
+      <div class="dialog-head">
+        <h2 id="recordTitle">Запись</h2>
+        <p id="recordDesc">Заполните поля формы и сохраните изменения.</p>
+      </div>
+      <div id="formFields" class="form-grid"></div>
+      <menu class="dialog-actions">
+        <button type="button" id="cancelBtn" class="btn">Отмена</button>
+        <button type="submit" class="btn primary">Сохранить</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="viewDialog" aria-labelledby="viewTitle" aria-describedby="viewDesc">
+    <div class="dialog-head">
+      <h2 id="viewTitle">Просмотр записи</h2>
+      <p id="viewDesc">Карточка выбранной строки.</p>
+    </div>
+    <div id="viewContent"></div>
+    <menu class="dialog-actions">
+      <button type="button" id="closeViewBtn" class="btn primary">Закрыть</button>
+    </menu>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
