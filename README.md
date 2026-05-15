@@ -30,7 +30,7 @@
 СУБД:  PostgreSQL (pgAdmin 4)
 
 Структура БД:
-
+```
 CREATE TABLE movie_genres (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     genre_name VARCHAR(100) NOT NULL,
@@ -63,3 +63,13 @@ VALUES
     ('The Cabinet of Dr. Caligari', (SELECT id FROM movie_genres WHERE genre_name = 'Horror'), 0.15, 74, '1920-02-26'),
     ('Some Like It Hot', (SELECT id FROM movie_genres WHERE genre_name = 'Comedy'), 25.00, 121, '1959-03-29'),
     ('Die Hard', (SELECT id FROM movie_genres WHERE genre_name = 'Action'), 140.00, 132, '1988-07-15');
+```
+## Шаг 3  Реализация веб-приложения
+- Языки: HTML, CSS и JavaScript.
+- В качестве облачной базы данных используется Supabase на основе PostgreSQL.
+- Релиз осушествлен с помощью GitHub Pages и размещается по адресу <https://fokinarciom.github.io/directory-module-barovik/>
+- Для локального запуска в папке проекта выполнить команду в корневой папке проекта
+```
+ python -m http.server 8000
+```
+и перейти по ссылке <http://localhost:8000>
